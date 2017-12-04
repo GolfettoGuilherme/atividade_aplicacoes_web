@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atividade 2</title>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnbuscarCep").click(function(){
+                $.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=" + $("#cep").val(), function () {
+                    if (resultadoCEP["resultado"] == 1) {
+                        $("#endereco").text(unescape(resultadoCEP["tipo_logradouro"]) + " " + unescape(resultadoCEP["logradouro"]));
+                        $("#bairro").text(unescape(resultadoCEP["bairro"]));
+                        $("#cidade").text(unescape(resultadoCEP["cidade"]));
+                        $("#estado").text(unescape(resultadoCEP["uf"]));
+                    } else {
+                        alert("endereço não encontrado");
+                    }
+                });
+            });
+        });
+        function formatar(src, mask) {
+            var i = src.value.length;
+            var saida = mask.substring(0, 1);
+            var texto = mask.substring(i)
+
+            if (texto.substring(0, 1) != saida)
+            {
+                src.value += texto.substring(0, 1);
+            }
+        } 
+    </script>
+</head>
+<body>
+    <p>
+        Cep:<input type="text" name="cep" id="cep" onkeyup="formatar(this, '#####-###');" maxlength="9">
+        <button id="btnbuscarCep">Buscar CEP</button>
+    </p>
+    <p>Endereço:<span id="endereco"></span></p>
+    <p>Bairro: <span id="bairro"></span> </p>
+    <p>Cidade: <span id="cidade"></span> </p>
+    <p>Estado: <span id="estado"></span> </p>
+</body>
+</html>

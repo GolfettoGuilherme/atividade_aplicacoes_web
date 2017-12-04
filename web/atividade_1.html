@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Atividade 1</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#btnMudar").click(function(){
+					$("body").css("background-color",$("#cmpCorFundo").val());
+					$("body").css("color", $("#cmpCorLetras").val());
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="conteudo">
+			<p>
+				Qual cor deseja mudar o fundo da tela:
+				<input type="color" id="cmpCorFundo">
+			</p>
+			<p>
+				Qual cor deseja mudar as letras
+				<input type="color" id="cmpCorLetras">
+			</p>
+			<p>
+				<button id="btnMudar">Mudar</button>
+			</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias tempore, iure omnis eos illo eligendi libero laboriosam sint voluptatem tempora, animi est, odio. Sequi, eius quisquam beatae dolorem nihil dignissimos.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias tempore, iure omnis eos illo eligendi libero laboriosam sint voluptatem tempora, animi est, odio. Sequi, eius quisquam beatae dolorem nihil dignissimos.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias tempore, iure omnis eos illo eligendi libero laboriosam sint voluptatem tempora, animi est, odio. Sequi, eius quisquam beatae dolorem nihil dignissimos.</p>
+		</div>
+	</body>
+</html>
